@@ -16,28 +16,26 @@ resource "rancher2_cluster" "packet-custom" {
 		network {
 			plugin = "canal"
 		}
-		nodes = [
-			{
-				address = "${vars.controller_ip}"
-				role = ["controlplane", "etcd"]
-				user = "admin"
-			},
-			{
-				address = "${vars.worker1_ip}"
-				role = ["worker"]
-				user = "admin"
-			},
-			{
-				address = "${vars.worker2_ip}"
-				role = ["worker"]
-				user = "admin"
-			},
-			{
-				address = "${vars.worker3_ip}"
-				role = ["worker"]
-				user = "admin"
-			}
-		]
+		nodes = {
+			address = "${vars.controller_ip}"
+			role = ["controlplane", "etcd"]
+			user = "admin"
+		}
+		nodes = {
+			address = "${vars.worker1_ip}"
+			role = ["worker"]
+			user = "admin"
+		}
+		nodes = {
+			address = "${vars.worker2_ip}"
+			role = ["worker"]
+			user = "admin"
+		}
+		nodes = {
+			address = "${vars.worker3_ip}"
+			role = ["worker"]
+			user = "admin"
+		}
 	}
 }
 
